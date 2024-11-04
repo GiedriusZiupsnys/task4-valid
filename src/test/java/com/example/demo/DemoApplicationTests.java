@@ -19,7 +19,7 @@ class DemoApplicationTests {
 	}
 
 	@Test
-	void contextLoads3() {
+	void contextLoads4() {
 	}
 
 
