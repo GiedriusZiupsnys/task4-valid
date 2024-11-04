@@ -27,6 +27,11 @@ jobs:
 
       - name: Lint YAML files
         run: |
-          yamllint src/main/resources/**/*.yml
-        # Fail the job if any YAML file contains errors
+          # Find all YAML files and lint them
+          files=$(find src/main/resources -name '*.yml' -o -name '*.yaml')
+          if [ -z "$files" ]; then
+            echo "No YAML files found to lint."
+          else
+            echo "$files" | xargs yamllint
+          fi
         continue-on-error: false
