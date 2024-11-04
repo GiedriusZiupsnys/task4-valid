@@ -18,5 +18,10 @@ class DemoApplicationTests {
 	void contextLoads3() {
 	}
 
+	@Test
+	void contextLoads3() {
+	}
+
+
 
 }
