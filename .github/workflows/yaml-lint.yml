@@ -1,0 +1,32 @@
+name: YAML Linting
+
+# Trigger the workflow on push and pull request events
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+
+      - name: Install yamllint
+        run: |
+          pip install yamllint
+
+      - name: Lint YAML files
+        run: |
+          yamllint src/main/resources/**/*.yml
+        # Fail the job if any YAML file contains errors
+        continue-on-error: false
