@@ -30,6 +30,9 @@ class DemoApplicationTests {
 	void contextLoads6() {
 	}
 
+	@Test
+	void contextLoads7() {
+	}
 
 
 }
